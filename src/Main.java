@@ -1,46 +1,218 @@
+//TODO ---
+
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         String nom;
-        String question;
+        String question = "";
+        String fin = "";
         int jeux = 0;
-
 
         System.out.println("Quel est ton nom : ");
         nom = scan.nextLine();
-
         sautLigne();
         System.out.println("Bonjour à toi " + nom + ", Bienvenue dans mon projet !\n" +
-                "tu te trouve la dans un projet qui regroupe la plupart de mes projet que j'ai eu a faire.\n" +
+                "Tu te trouve la dans un projet qui regroupe la plupart de mes projet que j'ai eu a faire.\n" +
                 "Ici tu retrouvera des programmes pour jouer, calculer, plein de type de programme en gros.\n" +
                 "Prends le temps d'explorer, et n'oublie pas de tout lire pour ne rien louper.\n" +
-                "Bonne découverte !");
+                "Bonne découverte !\n");
 
-        System.out.println("Veux tu joués a un jeux ? :");
-        question = scan.nextLine().toUpperCase();;
-
-        if (question.equals("OUI")) {
-            System.out.println("Liste des Jeux disponible :\n" +
+        while (!fin.equals("RIEN")){
+            System.out.println("Que veux tu faire ? :\n" +
+                    "- apprendre\n" +
+                    "- jeux\n" +
+                    "- claculatrice\n" +
+                    "- moyenne\n" +
+                    "- rien");
+            fin = scan.nextLine().toUpperCase();
+            sautLigne();
+        if (fin.equals("APPRENDRE")) {
+            while (question.equals("JAVA") || question.equals("PHP") || !question.equals("RIEN")) {
+                System.out.println("Que veux tu apprendre ?\n" +
+                        "- JAVA\n" +
+                        "- PHP\n" +
+                        "- RIEN");
+                question = scan.nextLine().toUpperCase();
+                if (question.equals("JAVA")) {
+                    java();
+                }
+                else if (question.equals("PHP")) {
+                    php();
+                }
+                else if (question.equals("RIEN")) {
+                    sautLigne();
+                }
+            }
+        }
+        else if (fin.equals("JEUX")) {
+            System.out.println("Voici la liste des Jeux disponible :\n" +
                     "1 - bataille navalle\n" +
-                    "2 - master mind\n"+
-                    "3 - pendu\n"+
-                    "4 - juste prix\n"+
-                    "5 - morpion\n"+
-                    "6 - xxx\n"+
-                    "7 - xxx\n"+
-                    "8 - xxx\n"+
-                    "9 - xxx\n");
+                    "2 - master mind\n" +
+                    "3 - pendu\n" +
+                    "4 - juste prix\n" +
+                    "5 - morpion\n");
 
-        } else {
-            System.out.println("tant pis");
+            System.out.println("A quel jeux veux tu jouer ? :");
+            jeux = scan.nextInt();
+            typeJeux(jeux);
+        }
+        else if (fin.equals("CALCULATRICE")) {
+            System.out.println("pouf voici une calculatrice");
+
+        }
+        else if (fin.equals("MOYENNE")) {
+            calculMoyenne();
+
+        }
+        else if (fin.equals("RIEN")) {
+            System.out.println("Pas de problème, revient quand tu veux.\n" +
+                    "A très vite " + nom + " !");
             scan.close();
             return;
         }
+        else {
+            System.out.println(" ");
+        }
+        }
+    }
 
-        System.out.println("A quel jeux veux tu jouer ? :");
-        jeux = scan.nextInt();
+
+    //---------------FONCTION---------------//
+    //Fonction apprendre JAVA
+    public static void java() {
+
+        Scanner scan = new Scanner(System.in);
+        String question = "";
+        int java;
+
+        System.out.println("Allons apprendre le JAVA\n");
+
+        while (!question.equals("NON")) {
+
+            sautLigne();
+            System.out.println("Que veux tu apprendre en JAVA ? :\n" +
+                    "1 - Variable\n" +
+                    "2 - Fonction\n" +
+                    "3 - Condition\n" +
+                    "4 - Boucle\n" +
+                    "5 - Tableau");
+            java = scan.nextInt();
+            sautLigne();
+            themeJava(java);
+            scan.nextLine();
+
+            System.out.println("veux tu voir quelque chose d'autre ? :");
+
+            question = scan.nextLine().toUpperCase();
+
+            if (question.equals("OUI")) {
+                System.out.println("voyons quelque chose d'autre ensemble !");
+            }
+            else if (question.equals("NON")) {
+
+                System.out.println("ok à plus tard !");
+            }
+        }
+    }
+
+    //Fonction apprendre PHP
+    public static void php() {
+
+        Scanner scan = new Scanner(System.in);
+        String question = "";
+        int php;
+
+        System.out.println("Allons apprendre le PHP\n");
+
+        while (!question.equals("NON")) {
+            sautLigne();
+            System.out.println("Que veux tu apprendre en PHP ? :\n" +
+                    "1 - Variable\n" +
+                    "2 - Fonction\n" +
+                    "3 - Condition\n" +
+                    "4 - Boucle\n" +
+                    "5 - Tableau");
+            php = scan.nextInt();
+            sautLigne();
+            themePhp(php);
+            scan.nextLine();
+
+            System.out.println("veux tu voir quelque chose d'autre ? :");
+
+            question = scan.nextLine().toUpperCase();
+
+            if (question.equals("OUI")) {
+                System.out.println("voyons quelque chose d'autre ensemble !");
+            } else if (question.equals("NON")) {
+
+                System.out.println("ok à plus tard !");
+            }
+        }
+    }
+
+    //Fonction thème JAVA
+    public static void themeJava(int java) {
+
+        switch (java) {
+            case 1:
+                System.out.println("Lancement du module Variable\n");
+                System.out.println("à remplir");
+                break;
+            case 2:
+                System.out.println("Lancement du module Fonction\n");
+                System.out.println("à remplir");
+                return;
+            case 3:
+                System.out.println("Lancement du module Condition\n");
+                System.out.println("à remplir");
+                return;
+            case 4:
+                System.out.println("Lancement du module Boucle\n");
+                System.out.println("à remplir");
+                return;
+            case 5:
+                System.out.println("Lancement du module tableau\n");
+                System.out.println("à remplir");
+        }
+    }
+
+    //Fonction thème PHP
+    public static void themePhp(int php) {
+
+        switch (php) {
+            case 1:
+                System.out.println("Lancement du module Variable\n");
+                System.out.println("à remplir");
+                break;
+            case 2:
+                System.out.println("Lancement du module Fonction\n");
+                System.out.println("à remplir");
+                return;
+            case 3:
+                System.out.println("Lancement du module Condition\n");
+                System.out.println("à remplir");
+                return;
+            case 4:
+                System.out.println("Lancement du module Boucle\n");
+                System.out.println("à remplir");
+                return;
+            case 5:
+                System.out.println("Lancement du module tableau\n");
+                System.out.println("à remplir");
+        }
+    }
+
+    // Fonction pour sauter des lignes
+    public static void sautLigne() {
+        for (int i = 0; i < 40; i++) {
+            System.out.println(" ");
+        }
+    }
+
+    //Fonction type jeux
+    public static void typeJeux(int jeux){
 
         switch (jeux) {
             case 1:
@@ -63,21 +235,7 @@ public class Main {
                 System.out.println("Lancement du jeux morpion\n");
                 morpion();
                 break;
-            case 6:
-                System.out.println("Lancement Calcul de moyenne\n");
-                calculMoyenne();
-                break;
-            case 7:
-                System.out.println("Sunday");
-                break;
-        }
 
-    }
-
-    // Fonction pour sauter des lignes
-    public static void sautLigne() {
-        for (int i = 0; i < 40; i++) {
-            System.out.println(" ");
         }
     }
 
@@ -493,9 +651,8 @@ public class Main {
             System.out.println("Tu peux revenir jouer dès que tu le veux.");
             System.out.println("A très vite ! :)");
         }
-
-        scanner.close();
     }
+
     // Méthode pour afficher le dessin du pendu
     public static void afficherPendu(int etape) {
         switch (etape) {
@@ -585,6 +742,7 @@ public class Main {
 //variable
         int nombreEleve;
         int nombreNote;
+        String temp;
 
 
 //Code
@@ -658,17 +816,11 @@ public class Main {
         for (int i = 0; i < nombreEleve; i++) {
             System.out.println((i + 1) + ". " + nomEtudiant[i] + " : " + moyenne[i]);
         }
+        System.out.println("touche \"entrer\" pour passer");
+        temp = scanner.nextLine();
+        scanner.nextLine();
 
     }
-
-
-
-
-
-
-
-
-
 
 
 }
