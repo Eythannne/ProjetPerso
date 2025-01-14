@@ -2,6 +2,7 @@
 //TODO variable temporaire (pour prendre une donnée d'un switch)
 //TODO corriger les fautes
 //TODO faire une fonction "appuyer sur la touche entrer"
+//TODO passer switch (int) --> (String)
 
 import java.util.Scanner;
 
