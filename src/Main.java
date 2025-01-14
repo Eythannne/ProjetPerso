@@ -1,7 +1,6 @@
 //TODO fonction dans une fonction
 //TODO variable temporaire (pour prendre une donnée d'un switch)
 //TODO corriger les fautes
-//TODO faire une fonction "appuyer sur la touche entrer"
 //TODO passer switch (int) --> (String)
 
 import java.util.Scanner;
@@ -16,12 +15,14 @@ public class Main {
 
         System.out.println("Quel est ton nom : ");
         nom = scan.nextLine();
-        sautLigne();
+        //sautLigne();
         System.out.println("Bonjour à toi " + nom + ", Bienvenue dans mon projet !\n" +
                 "Tu te trouve la dans un projet qui regroupe la plupart de mes projets que j'ai eu à faire.\n" +
                 "Ici tu retrouvera des programmes pour jouer, calculer, plein de types de programmes en gros.\n" +
                 "Prends le temps d'explorer, et n'oublie pas de tout lire pour ne rien louper.\n" +
                 "Bonne découverte !\n");
+
+        //entrer();
 
         while (!fin.equals("RIEN")){
             System.out.println("Que veux tu faire ? :\n" +
@@ -31,7 +32,7 @@ public class Main {
                     "- Moyenne\n" +
                     "- Rien");
             fin = scan.nextLine().toUpperCase();
-            sautLigne();
+            //sautLigne();
         if (fin.equals("APPRENDRE")) {
             while (question.equals("JAVA") || question.equals("PHP") || !question.equals("RIEN")) {
                 System.out.println("Que veux tu apprendre ?\n" +
@@ -46,7 +47,7 @@ public class Main {
                     php();
                 }
                 else if (question.equals("RIEN")) {
-                    sautLigne();
+                    //sautLigne();
                 }
             }
         }
@@ -105,13 +106,12 @@ public class Main {
 
         Scanner scan = new Scanner(System.in);
         String question = "";
-        int java = 0;
 
         System.out.println("Allons apprendre le JAVA\n");
 
         while (!question.equals("NON")) {
 
-            sautLigne();
+            //sautLigne();
             System.out.println("Que veux tu apprendre en JAVA ? :\n" +
                     "- Variable\n" +
                     "- Fonction\n" +
@@ -119,23 +119,8 @@ public class Main {
                     "- Boucle\n" +
                     "- Tableau");
             question = scan.nextLine().toUpperCase();
-            if (question.equals("VARIABLE")) {
-                java = 1;
-            }
-            else if (question.equals("FONCTION")) {
-                java = 2;
-            }
-            else if (question.equals("CONDITION")) {
-                java = 3;
-            }
-            else if (question.equals("BOUCLE")) {
-                java = 4;
-            }
-            else if (question.equals("TABLEAU")) {
-                java = 5;
-            }
-            sautLigne();
-            themeJava(java);
+            //sautLigne();
+            themeJava(question);
             scan.nextLine();
 
             System.out.println("veux tu voir quelque chose d'autre en JAVA ? :");
@@ -162,7 +147,7 @@ public class Main {
         System.out.println("Allons apprendre le PHP\n");
 
         while (!question.equals("NON")) {
-            sautLigne();
+            //sautLigne();
             System.out.println("Que veux tu apprendre en PHP ? :\n" +
                     "- Variable\n" +
                     "- Fonction\n" +
@@ -185,7 +170,7 @@ public class Main {
             else if (question.equals("TABLEAU")) {
                 php = 5;
             }
-            sautLigne();
+            //sautLigne();
             themePhp(php);
             scan.nextLine();
 
@@ -203,10 +188,10 @@ public class Main {
     }
 
     //Fonction thème JAVA
-    public static void themeJava(int java) {
+    public static void themeJava(String java) {
 
         switch (java) {
-            case 1:
+            case "VARIABLE":
                 System.out.println("Lancement du module Variable\n");
                 System.out.println("à remplir");
                 System.out.println("Exemple de theme :\n"+
@@ -214,22 +199,31 @@ public class Main {
                         "2) explication a quoi ça sert\n"+
                         "3) differents type de 'theme'\n"+
                         "4) exemple d'utilisation (dans un code)\n");
+                //entrer();
                 break;
-            case 2:
+
+            case "FONCTION":
                 System.out.println("Lancement du module Fonction\n");
                 System.out.println("à remplir");
+                //entrer();
                 return;
-            case 3:
+
+            case "CONDITION":
                 System.out.println("Lancement du module Condition\n");
                 System.out.println("à remplir");
+                //entrer();
                 return;
-            case 4:
+
+            case "BOUCLE":
                 System.out.println("Lancement du module Boucle\n");
                 System.out.println("à remplir");
+                //entrer();
                 return;
-            case 5:
+
+            case "TABLEAU":
                 System.out.println("Lancement du module tableau\n");
                 System.out.println("à remplir");
+                //entrer();
         }
     }
 
@@ -262,6 +256,15 @@ public class Main {
                 System.out.println("Lancement du module tableau\n");
                 System.out.println("à remplir");
         }
+    }
+
+    // Fonction touche entrer
+    public static void entrer() {
+        Scanner scan = new Scanner(System.in);
+        String entrer = "";
+
+        System.out.println("[--- TOUCHE ENTRER ---]");
+        entrer = scan.nextLine();
     }
 
     // Fonction pour sauter des lignes
