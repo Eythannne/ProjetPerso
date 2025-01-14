@@ -1,6 +1,7 @@
 //TODO fonction dans une fonction
 //TODO variable temporaire (pour prendre une donnée d'un switch)
 //TODO corriger les fautes
+//TODO faire une fonction "appuyer sur la touche entrer"
 
 import java.util.Scanner;
 
